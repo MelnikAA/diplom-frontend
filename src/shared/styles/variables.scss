@@ -1,0 +1,84 @@
+// цвета
+
+$card-color: #ffffff; //цвет card
+
+$line-color: #e3e7eb; //цвет разделающей линии
+
+$accent-color-primary: var(--primary-color);
+$accent-color-secondary: var(--secondary-color);
+$accent-color-secondary2: var(--secondary2-color);
+//цвета кнопок
+$btn-color: #bc002d;
+$btn-hover-color: #9c0024;
+$btn-focused-border-color: #f845fc;
+$btn-click-background: #bc002d;
+
+$btn-background-disabled: #f4f3fe;
+$btn-color-disabled: #c5c0db;
+
+$btn-secondary-border: #bc002d;
+$btn-secondary-background-hover: #f6f5ff;
+
+$main-color: #bc002d;
+$green: #55b53e;
+$light-green: #dff6da;
+$dark-green: #86ab7d;
+
+$input-background: #fff; // цвет фона полей ввода
+$input-border-color: #d0d4dc; //цвет обводки инпутов
+$placeholder: #cdcdcd; //цвет текста placeholder
+$input-title: #9d99ac; //цвет лейбла инпута
+$input-hover-border: #dddddd; //цвет border при наведении
+$error-input-background: #fff5f5; //фон input при ошибке
+$error-input-border: #ffd8d8; //цвет рамки input при ошибке
+
+$details-color: #8a8894; // цвет небольших подписей, курса валют, инф-ии об авто
+
+$dropdown-background-focus-option: #f8f8fa; //цвет фона опции dropdown при наведении
+
+$background-color-epcs-sbkts-utilization: #ebecee; // цвет блока "Получение ЭТПС"
+$checkbox-background: #d5dce4; //фон чекбокса
+$checkbox-border-color: #bdbcdb;
+$car-equipment-coast-background: #d5dce4; //цвет блока с финальной ценой на 3 шаге
+$car-btn: #fffbf4; // цвет кнопки "о машине"
+$black: #1d1d1f;
+$white: #ffffff;
+$gray-1: #a3abb4; //gray-1 из макета - цвет неакцентного текста и плейсхолдеров
+$light-gray: #d0d4dc; //gray-3 из макета
+$extra-light-gray: #e3e7eb; //gray-4 из макета
+$beige-gray: #d4d4d4;
+$gray-4: #e3e7eb;
+$gray-5: #eef2f6;
+$background-gray: #f4f5fc;
+$yellow: #bc9714;
+
+//тени
+$shadow-color: 0px 5px 15px rgba(2, 12, 29, 0.05); //параметры тени
+$box-shadow: 0 4px 8px 0 rgba(142, 141, 208, 0.16); //параметры тени
+
+// радиус скругления элементов
+
+$card-radius: 16px; //радиус скругдения карточки
+$modal-radius: 0px; //радиус скругления модального окна
+$smal-radius: 4px; //используется для инпутов
+$middle-radius: 8px; //используется для кнопок
+
+//щрифт
+
+$font: "Roboto, sans-serif";
+
+//брейкпоинты
+
+$desktop-1920-breakpoint: 1920px;
+$desktop-1440-breakpoint: 1440px;
+$desktop-breakpoint: 1024px;
+$tablet-landscape-breakpoint: 768px;
+$tablet-portrait-breakpoint: 425px;
+$mobile-landscape-breakpoint: 375px;
+$mobile-portrait-breakpoint: 320px;
+
+:root {
+  --primary-color: var(--mantine-color-primary-0);
+  --secondary-color: var(--mantine-color-secondary-0);
+  --secondary2-color: var(--mantine-color-secondary2-0);
+}

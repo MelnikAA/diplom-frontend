@@ -1,0 +1,57 @@
+@mixin max-width($resolution) {
+  @media (max-width: #{$resolution}) {
+    @content;
+  }
+}
+
+@mixin min-width($resolution) {
+  @media (min-width: #{$resolution}) {
+    @content;
+  }
+}
+
+@mixin flex($gap: 0) {
+  display: flex;
+  gap: $gap;
+}
+
+@mixin column-flex($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin align-center-row-flex($gap: 0) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin align-center-column-flex($gap: 0) {
+  @include column-flex($gap);
+
+  align-items: center;
+}
+
+@mixin hide-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+@mixin no-select() {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+@function rem($px) {
+  @return calc($px / 16)rem; // Делим пиксели на базовый размер (16px)
+}

@@ -1,0 +1,20 @@
+@use "@styles/variables" as *;
+
+.checkboxInput {
+  background-color: white;
+  border-color: $accent-color-secondary;
+  &:checked {
+    background-color: $accent-color-secondary;
+  }
+
+  &[data-indeterminate] {
+    background-color: $accent-color-secondary;
+    border-color: $accent-color-secondary;
+  }
+}
+//input
+.inputStyles {
+  &:focus {
+    //  border-color:  $accent-color-secondary;
+  }
+}
