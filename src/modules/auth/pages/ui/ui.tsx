@@ -1,4 +1,4 @@
-import { Button, PasswordInput, TextInput } from "@mantine/core";
+import { Button, PasswordInput, TextInput, Loader } from "@mantine/core";
 import useAuthStore from "../model/authStore";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -7,11 +7,13 @@ export const LoginForm = () => {
   const { login, error, setError } = useAuthStore();
   const [username, setUsernameLocal] = useState("");
   const [password, setPasswordLocal] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleLogin = async () => {
     try {
+      setIsLoading(true);
       setUsernameLocal(username);
       setPasswordLocal(password);
       setError(null);
@@ -21,11 +23,13 @@ export const LoginForm = () => {
     } catch (error) {
       /*       console.error("Ошибка авторизации:", error);*/
       setError("Ошибка авторизации");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !isLoading) {
       handleLogin();
     }
   };
@@ -48,12 +52,13 @@ export const LoginForm = () => {
     <>
       <TextInput
         error={error}
-        label={"Логин"}
-        placeholder="user"
+        label={"Почта"}
+        placeholder="user@example.com"
         required
         value={username}
         onChange={(e) => setUsernameLocal(e.target.value)}
         onKeyDown={handleKeyDown}
+        disabled={isLoading}
       />
       <PasswordInput
         error={error}
@@ -64,9 +69,16 @@ export const LoginForm = () => {
         value={password}
         onChange={(e) => setPasswordLocal(e.target.value)}
         onKeyDown={handleKeyDown}
+        disabled={isLoading}
       />
-      <Button fullWidth mt="xl" onClick={handleLogin}>
-        {"Войти"}
+      <Button
+        fullWidth
+        mt="xl"
+        onClick={handleLogin}
+        loading={isLoading}
+        leftSection={isLoading ? <Loader size="sm" /> : null}
+      >
+        {isLoading ? "Вход..." : "Войти"}
       </Button>
     </>
   );

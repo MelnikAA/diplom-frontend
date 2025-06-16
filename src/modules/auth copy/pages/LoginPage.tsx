@@ -3,7 +3,7 @@ import React from "react";
 import { LoginForm } from "./ui/ui";
 import logo from "../../../layouts/c1e98d86-67a7-4737-aa29-09ffd50e8ff9 (1)-Photoroom.png";
 
-const LoginPage: React.FC = () => (
+const PasswordPage: React.FC = () => (
   <Container size={420} my={40}>
     <Image
       src={logo}
@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => (
       style={{ width: "200px", margin: "0 auto 20px" }}
     />
     <Title ta="center" className={"title"}>
-      Авторизация
+      Введите пароль для вашей учетной записи
     </Title>
     <Paper withBorder shadow="md" p={30} mt={30} radius="md">
       <LoginForm />
@@ -19,4 +19,4 @@ const LoginPage: React.FC = () => (
   </Container>
 );
 
-export default LoginPage;
+export default PasswordPage;

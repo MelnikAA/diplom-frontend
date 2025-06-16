@@ -1,0 +1,48 @@
+.resultInfoContainer {
+  display: flex;
+  gap: 32px;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+.headerDateWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    color: #8a8894;
+  }
+}
+.infoBlock p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.infoBlock strong {
+  color: #72c0d9;
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.resultImage {
+  height: auto;
+  max-height: 80vh;
+  width: auto;
+  min-width: 25vw;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.headerDateWrapper {
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+.resultInfo {
+  padding: 16px 20px 32px 20px;
+  border: 1px solid #d3d3d6;
+  border-radius: 16px;
+  p {
+    margin-bottom: 1px;
+  }
+}

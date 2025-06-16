@@ -1,0 +1,41 @@
+.wrapper {
+}
+.submitButton {
+  margin: auto;
+  width: 100%;
+}
+.inputContainer {
+  display: flex;
+  gap: 32px;
+  height: 100%; // или конкретная высота, например 500px
+  padding-bottom: 30px;
+}
+
+.inputWrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.textareaWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  & > textarea {
+    flex-grow: 1;
+    height: 100%;
+  }
+}
+.input {
+  height: 100% !important;
+}
+.wrapper {
+  height: calc(100% - 25px);
+}
+.warning {
+  display: flex;
+  justify-content: center;
+  color: gray;
+}

@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&display=swap");
+
+.header {
+  font-family: "Urbanist", sans-serif !important;
+  font-weight: 400 !important; /* Explicit weight for better control */
+  font-style: normal; /* Explicit style declaration */
+}
+.headerWrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between !important;
+}
+.logoWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.userWrapper {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.mainLayout {
+  padding-inline: 10px !important; // Левый и правый отступ
+
+  @media (min-width: 576px) {
+    padding-inline: 20px !important;
+  }
+
+  @media (min-width: 992px) {
+    padding-inline: 30px !important;
+  }
+
+  @media (min-width: 1200px) {
+    padding-inline: 150px !important;
+  }
+
+  @media (min-width: 1600px) {
+    padding-inline: 200px !important;
+  }
+  @media (min-width: 2000px) {
+    padding-inline: 300px !important;
+  }
+}

@@ -1,0 +1,69 @@
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.placeholder {
+  position: absolute;
+  top: 18px;
+  left: 54px;
+  font-size: 14px;
+  line-height: 140%;
+  color: #adb5bd; // цвет для placeholder
+  pointer-events: none;
+}
+.placeholder-active {
+  position: absolute;
+  top: 8px;
+  left: 54px;
+  font-size: 14px;
+  line-height: 140%;
+  color: #adb5bd; // цвет для placeholder
+  pointer-events: none;
+}
+.section {
+  width: 55px;
+}
+.input {
+  height: 55px;
+  padding: 25px 10px 2px 54px;
+}
+.value {
+  font-size: 16px;
+  line-height: 120%;
+}
+.inputFocused {
+  height: 55px;
+  padding: 25px 10px 2px 54px;
+  border-color: #340cd4;
+}
+.levelsGroup {
+  width: 100%;
+  > * {
+    width: 100%;
+    height: 100%;
+    .mantine-DatePicker-calendarHeader {
+      width: 100% !important;
+    }
+  }
+}
+.wrapper {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  > * {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+}
+.month {
+  width: 100%;
+  height: calc(100% - 50px);
+  @media (max-width: 420px) {
+    height: calc(70%);
+  }
+}
+.calendarHeader {
+  min-width: 100% !important;
+}

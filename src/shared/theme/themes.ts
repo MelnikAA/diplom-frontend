@@ -8,19 +8,19 @@ interface ThemeColors {
 
 export const THEMES: Record<AppTheme, ThemeColors> = {
   default: {
-    primary: "#340bd4", //фиолетовы-красный
-    secondary: "#340bd4", //фиолетовый-черный
-    secondary2: "#BC002D", //красынй-красный
+    primary: "#72C0D9", //фиолетовы-красный
+    secondary: "#72C0D9", //фиолетовый-черный
+    secondary2: "#72C0D9", //красынй-красный
   },
   red: {
-    primary: "#DB1D1F",
-    secondary: "#000000",
-    secondary2: "#DB1D1F",
+    primary: "#72C0D9",
+    secondary: "#72C0D9",
+    secondary2: "#72C0D9",
   },
   blue: {
-    primary: "#340bd4",
-    secondary: "#340bd4",
-    secondary2: "#340bd4",
+    primary: "#72C0D9",
+    secondary: "#72C0D9",
+    secondary2: "#72C0D9",
   },
 };
 

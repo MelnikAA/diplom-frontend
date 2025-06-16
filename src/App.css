@@ -1,0 +1,32 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+title {
+  font-family: "Roboto", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+label,
+input,
+p,
+span,
+textarea,
+a,
+div {
+  font-family: "Roboto", sans-serif !important;
+}
+th,
+td {
+  font-family: "Roboto", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+.mantine-Button-label {
+  font-family: "Roboto", sans-serif;
+}
+a {
+  color: #72c0d9 !important;
+}

@@ -9,20 +9,48 @@ import "./App.css";
 import { MantineProvider } from "@mantine/core";
 import { mantineTheme } from "./shared/styles/mantineTheme";
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
+import { DatesProvider } from "@mantine/dates";
+import "dayjs/locale/ru";
+
+import AnalysisPage from "./modules/analysisPage/analysisPage";
+import {
+  AuthRoute,
+  AdminRoute,
+} from "./modules/auth/components/ProtectedRoute";
+import PasswordPage from "./modules/auth copy/pages/LoginPage";
 
 function App() {
   return (
     <MantineProvider theme={mantineTheme}>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route element={<MainLayout />}>
-          <Route path="/dashboard" element={<UserDashboard />} />
-          <Route path="/history" element={<HistoryPage />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>{" "}
+      <DatesProvider settings={{ locale: "ru", firstDayOfWeek: 1 }}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/history" replace />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/set-password" element={<PasswordPage />} />
+          <Route
+            element={
+              <AuthRoute>
+                <MainLayout />
+              </AuthRoute>
+            }
+          >
+            <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/analysis" element={<AnalysisPage />} />
+            <Route path="/analysis/:id" element={<AnalysisPage />} />
+            <Route path="/history" element={<HistoryPage />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              }
+            />
+          </Route>
+          <Route path="*" element={<Navigate to="/history" replace />} />
+        </Routes>
+      </DatesProvider>
     </MantineProvider>
   );
 }
