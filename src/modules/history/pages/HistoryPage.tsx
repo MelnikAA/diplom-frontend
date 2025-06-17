@@ -24,6 +24,10 @@ import { IconExternalLink } from "@tabler/icons-react";
 import { ru } from "date-fns/locale";
 
 const HistoryPage: React.FC = () => {
+  useEffect(() => {
+    document.title = "История отчетов | brainCheck";
+  }, []);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const {
@@ -154,118 +158,124 @@ const HistoryPage: React.FC = () => {
   };
 
   return (
-    <Box>
-      <Group mb="md">
-        <Select
-          placeholder="Выберите пациента"
-          data={patientOptions}
-          value={filters.patient_id?.toString() || null}
-          onChange={(value) =>
-            setFilters({
-              patient_id: value ? value : undefined,
-            })
-          }
-          label="Фильтр по пациенту"
-          searchable
-          clearable
-          nothingFoundMessage="Пациенты не найдены"
-        />
-        {user?.is_superuser && (
+    <>
+      <Box>
+        <Group mb="md">
           <Select
-            placeholder="Выберите врача"
-            data={usersOptions}
-            value={filters.owner_id || null}
-            onChange={(value) => handleOwnerChange(value || "")}
-            label="Фильтр по врачу"
+            placeholder="Выберите пациента"
+            data={patientOptions}
+            value={filters.patient_id?.toString() || null}
+            onChange={(value) =>
+              setFilters({
+                patient_id: value ? value : undefined,
+              })
+            }
+            label="Фильтр по пациенту"
             searchable
             clearable
-            nothingFoundMessage="Врачи не найдены"
+            nothingFoundMessage="Пациенты не найдены"
           />
+          {user?.is_superuser && (
+            <Select
+              placeholder="Выберите врача"
+              data={usersOptions}
+              value={filters.owner_id || null}
+              onChange={(value) => handleOwnerChange(value || "")}
+              label="Фильтр по врачу"
+              searchable
+              clearable
+              nothingFoundMessage="Врачи не найдены"
+            />
+          )}
+
+          <Select
+            clearable
+            placeholder="Наличие опухоли"
+            data={[
+              { value: "true", label: "Да" },
+              { value: "false", label: "Нет" },
+            ]}
+            value={
+              filters.has_tumor !== undefined
+                ? filters.has_tumor.toString()
+                : null
+            }
+            onChange={(value) =>
+              setFilters({
+                has_tumor:
+                  value === "true"
+                    ? true
+                    : value === "false"
+                    ? false
+                    : undefined,
+              })
+            }
+            label="Фильтр по опухоли"
+          />
+          <div style={{ display: "flex", gap: "16px", minWidth: "200px" }}>
+            <DateInput
+              value={dateFrom}
+              onChange={setDateFrom}
+              label="Дата с"
+              maxDate={dateTo || undefined}
+              placeholder="Дата с"
+              clearable
+              locale="ru"
+              valueFormat="DD.MM.YYYY"
+            />
+            <DateInput
+              clearable
+              value={dateTo}
+              onChange={setDateTo}
+              label="Дата по"
+              minDate={dateFrom || undefined}
+              placeholder="Дата по"
+              locale="ru"
+              valueFormat="DD.MM.YYYY"
+            />
+          </div>
+
+          {/*<Button onClick={resetFilters}>Сбросить фильтры</Button> */}
+        </Group>
+
+        {isLoading && <Text>Загрузка истории отчетов...</Text>}
+        {error && <Text color="red">Ошибка: {error}</Text>}
+
+        {!isLoading && !error && predictions.length === 0 && (
+          <Text>Нет данных для отображения.</Text>
         )}
 
-        <Select
-          clearable
-          placeholder="Наличие опухоли"
-          data={[
-            { value: "true", label: "Да" },
-            { value: "false", label: "Нет" },
-          ]}
-          value={
-            filters.has_tumor !== undefined
-              ? filters.has_tumor.toString()
-              : null
-          }
-          onChange={(value) =>
-            setFilters({
-              has_tumor:
-                value === "true" ? true : value === "false" ? false : undefined,
-            })
-          }
-          label="Фильтр по опухоли"
-        />
-        <div style={{ display: "flex", gap: "16px", minWidth: "200px" }}>
-          <DateInput
-            value={dateFrom}
-            onChange={setDateFrom}
-            label="Дата с"
-            maxDate={dateTo || undefined}
-            placeholder="Дата с"
-            clearable
-            locale="ru"
-            valueFormat="DD.MM.YYYY"
-          />
-          <DateInput
-            clearable
-            value={dateTo}
-            onChange={setDateTo}
-            label="Дата по"
-            minDate={dateFrom || undefined}
-            placeholder="Дата по"
-            locale="ru"
-            valueFormat="DD.MM.YYYY"
-          />
-        </div>
+        {!isLoading && predictions.length > 0 && (
+          <>
+            <Paper shadow="sm" radius="lg" p="xl" withBorder>
+              <Table highlightOnHover>
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Дата и Время</Table.Th>
+                    <Table.Th>Опухоль</Table.Th>
+                    <Table.Th>Уверенность модели</Table.Th>
+                    <Table.Th>Пациент</Table.Th>
+                    {user?.is_superuser && <Table.Th>Врач</Table.Th>}
+                    <Table.Th>Изображение</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>{rows}</Table.Tbody>
+              </Table>
+            </Paper>
 
-        {/*<Button onClick={resetFilters}>Сбросить фильтры</Button> */}
-      </Group>
-
-      {isLoading && <Text>Загрузка истории отчетов...</Text>}
-      {error && <Text color="red">Ошибка: {error}</Text>}
-
-      {!isLoading && !error && predictions.length === 0 && (
-        <Text>Нет данных для отображения.</Text>
-      )}
-
-      {!isLoading && predictions.length > 0 && (
-        <>
-          <Paper shadow="sm" radius="lg" p="xl" withBorder>
-            <Table highlightOnHover>
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th>Дата и Время</Table.Th>
-                  <Table.Th>Опухоль</Table.Th>
-                  <Table.Th>Уверенность модели</Table.Th>
-                  <Table.Th>Пациент</Table.Th>
-                  {user?.is_superuser && <Table.Th>Врач</Table.Th>}
-                  <Table.Th>Изображение</Table.Th>
-                </Table.Tr>
-              </Table.Thead>
-              <Table.Tbody>{rows}</Table.Tbody>
-            </Table>
-          </Paper>
-
-          <Group justify="space-between" mt="md">
-            <Pagination total={pages} value={page} onChange={setPage} />
-            <Select
-              value={size.toString()}
-              onChange={(value) => setSize(parseInt(value || "10"))}
-              data={["10", "25", "50", "100"]}
-              label="Элементов на странице"
-            />
-          </Group>
-        </>
-      )}
-    </Box>
+            <Group justify="space-between" mt="md">
+              <Pagination total={pages} value={page} onChange={setPage} />
+              <Select
+                value={size.toString()}
+                onChange={(value) => setSize(parseInt(value || "10"))}
+                data={["10", "25", "50", "100"]}
+                label="Элементов на странице"
+              />
+            </Group>
+          </>
+        )}
+      </Box>
+    </>
   );
 };
 

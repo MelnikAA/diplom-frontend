@@ -22,7 +22,7 @@ export const AuthRoute: React.FC<AuthRouteProps> = ({ children }) => {
     return () => {
       mounted = false;
     };
-  }, [accessToken, user, loading, fetchUser]);
+  }, [accessToken, user]);
 
   // Если нет токена, сразу редиректим на логин
   if (!accessToken) {

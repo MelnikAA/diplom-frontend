@@ -17,6 +17,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useHistoryStore, type Patient } from "../history/pages/model";
 
 const AnalysisPage = () => {
+  useEffect(() => {
+    document.title = "Анализ снимка | brainCheck";
+  }, []);
   const { id } = useParams();
   const navigate = useNavigate();
   const { patients, fetchPatient } = useHistoryStore();

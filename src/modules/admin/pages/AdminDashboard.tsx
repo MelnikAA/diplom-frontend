@@ -19,6 +19,10 @@ import { resetUserPassword } from "./api";
 import { IconAlertCircle } from "@tabler/icons-react";
 
 const AdminDashboard: React.FC = () => {
+  useEffect(() => {
+    document.title = "Панель администратора | brainCheck";
+  }, []);
+
   const {
     users,
     loading,

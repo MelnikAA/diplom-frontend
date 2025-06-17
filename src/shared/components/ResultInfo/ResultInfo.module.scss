@@ -20,11 +20,22 @@
 .infoBlock strong {
   color: #72c0d9;
 }
-
+.patientWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  p {
+    margin: 0;
+    line-height: 120%;
+    text-align: right;
+  }
+}
 .imageContainer {
   width: 100%;
 }
-
+.dateTime {
+  font-weight: 600 !important;
+}
 .resultImage {
   height: auto;
   max-height: 80vh;

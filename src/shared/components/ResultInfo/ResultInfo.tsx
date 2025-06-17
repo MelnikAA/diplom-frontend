@@ -13,7 +13,6 @@ const ResultInfo = ({ prediction }: ResultInfoProps) => {
   const dt = DateTime.fromISO(prediction.created_at, { setZone: true });
   const formattedDate = dt.toFormat("dd.MM.yyyy");
   const formattedTime = dt.toFormat("HH:mm");
-
   const formatBirthDate = (dateString: string) => {
     return DateTime.fromISO(dateString).toFormat("dd.MM.yyyy");
   };
@@ -45,12 +44,6 @@ ${prediction.notes ? `Примечания: ${prediction.notes}\n` : ""}
         </div>
       )}
       <div className={style.resultInfo}>
-        <p className={style.patient}>
-          {prediction.patient &&
-            `${prediction.patient?.full_name} (${formatBirthDate(
-              prediction.patient.birth_date
-            )})`}
-        </p>
         <div className={style.headerDateWrapper}>
           <h2>
             Результат распознавания
@@ -73,11 +66,22 @@ ${prediction.notes ? `Примечания: ${prediction.notes}\n` : ""}
               )}
             </CopyButton>
           </h2>
-          <p>
-            {formattedDate}
-            {"     "}
-            {formattedTime}
-          </p>
+          <div className={style.patientWrapper}>
+            <p className={style.patient}>
+              {prediction.patient &&
+                `Пациент: ${prediction.patient?.full_name} (${formatBirthDate(
+                  prediction.patient.birth_date
+                )})`}
+            </p>
+            <p className={style.patient}>
+              {prediction.owner && `Врач: ${prediction.owner?.full_name}`}
+            </p>
+            <p className={style.dateTime}>
+              {formattedDate}
+              {"     "}
+              {formattedTime}
+            </p>
+          </div>
         </div>
 
         <Group justify="flex-end" mb="sm"></Group>

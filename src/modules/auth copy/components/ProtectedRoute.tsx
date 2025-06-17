@@ -9,7 +9,7 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) {
-    return <div>Загрузка...</div>;
+    return <div>Загрузка123...</div>;
   }
   if (!user || !user.is_superuser) {
     // Пользователь не авторизован или не является суперпользователем, перенаправляем на главную
