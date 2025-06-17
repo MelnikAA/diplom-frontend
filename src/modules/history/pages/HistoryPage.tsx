@@ -101,9 +101,10 @@ const HistoryPage: React.FC = () => {
   const rows = predictions?.map((prediction: Prediction) => {
     const createdAt = DateTime.fromISO(prediction.created_at, {
       setZone: true,
-    });
-    const formattedDate = createdAt.toFormat("dd.MM.yyyy");
-    const formattedTime = createdAt.toFormat("HH:mm");
+    }).plus({ hours: 9 }); // Прибавляем 9 часов
+
+    const formattedDate = createdAt.toFormat("dd.MM.yyyy"); // Например: 18.06.2025
+    const formattedTime = createdAt.toFormat("HH:mm"); // Например: 09:56
 
     return (
       <Table.Tr key={prediction.id}>

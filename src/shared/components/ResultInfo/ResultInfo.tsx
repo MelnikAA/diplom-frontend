@@ -9,7 +9,9 @@ interface ResultInfoProps {
 }
 
 const ResultInfo = ({ prediction }: ResultInfoProps) => {
-  const dt = DateTime.fromISO(prediction.created_at, { setZone: true });
+  const dt = DateTime.fromISO(prediction.created_at, { setZone: true }).plus({
+    hours: 9,
+  });
   const formattedDate = dt.toFormat("dd.MM.yyyy");
   const formattedTime = dt.toFormat("HH:mm");
   const formatBirthDate = (dateString: string) => {
