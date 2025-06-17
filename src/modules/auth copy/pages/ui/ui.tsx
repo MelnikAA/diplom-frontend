@@ -4,12 +4,10 @@ import {
   Button,
   Container,
   PasswordInput,
-  TextInput,
   Loader,
 } from "@mantine/core";
-import useAuthStore from "../model/authStore";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../../../../shared/api";
 
 export const LoginForm = () => {

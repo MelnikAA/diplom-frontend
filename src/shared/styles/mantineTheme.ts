@@ -4,7 +4,6 @@ import {
   TextInput,
   Select,
   type MantineThemeOverride,
-  Loader,
 } from "@mantine/core";
 import s from "./mantineCustomStyles.module.scss";
 import { getCurrentTheme, THEMES } from "../theme/themes";

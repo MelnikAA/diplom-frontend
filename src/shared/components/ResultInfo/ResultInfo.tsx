@@ -1,8 +1,7 @@
-import React from "react";
 import style from "./ResultInfo.module.scss";
 import type { Prediction } from "../../../modules/analysisPage/predictionModel";
 import { DateTime } from "luxon";
-import { CopyButton, ActionIcon, Tooltip, Button, Group } from "@mantine/core";
+import { CopyButton, ActionIcon, Tooltip, Group } from "@mantine/core";
 import { IconCopy, IconCheck } from "@tabler/icons-react";
 
 interface ResultInfoProps {

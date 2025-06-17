@@ -2,10 +2,8 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import {
   AppShell,
   Burger,
-  Button,
   Group,
   Tabs,
-  Text,
   Title,
   Menu,
   ActionIcon,
@@ -14,20 +12,14 @@ import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { useWhoamiStore } from "./model/whoamiStore";
 import logo from "./c1e98d86-67a7-4737-aa29-09ffd50e8ff9 (1)-Photoroom.png";
-import {
-  IconChartDots3,
-  IconPlus,
-  IconDotsVertical,
-} from "@tabler/icons-react";
-import { getAttemptDeclension } from "../utils/declension";
+import { IconDotsVertical } from "@tabler/icons-react";
 import style from "./style.module.scss";
-import { useAuth } from "../modules/auth/hooks/useAuth";
 import useAuthStore from "../modules/auth/pages/model/authStore";
 
 export function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
 
-  const { user, fetchUser } = useWhoamiStore();
+  const { user } = useWhoamiStore();
   const navigate = useNavigate();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState<string | null>(() => {

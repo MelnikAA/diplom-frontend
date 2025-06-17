@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
 import { DatesProvider } from "@mantine/dates";
-import { ru } from "date-fns/locale";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

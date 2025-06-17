@@ -1,4 +1,4 @@
-import axios, { AxiosError, type AxiosResponse } from "axios";
+import { AxiosError, type AxiosResponse } from "axios";
 
 import $apiWithHeaders from "../../../../shared/api/apiWithHeaders";
 import type {

@@ -1,7 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { LandingPage } from "./modules/landing";
 import { LoginPage } from "./modules/auth";
-import { UserDashboard } from "./modules/user";
 import { HistoryPage } from "./modules/history";
 import { AdminDashboard } from "./modules/admin";
 import { MainLayout } from "./layouts/MainLayout";
@@ -35,7 +33,6 @@ function App() {
               </AuthRoute>
             }
           >
-            <Route path="/dashboard" element={<UserDashboard />} />
             <Route path="/analysis" element={<AnalysisPage />} />
             <Route path="/analysis/:id" element={<AnalysisPage />} />
             <Route path="/history" element={<HistoryPage />} />

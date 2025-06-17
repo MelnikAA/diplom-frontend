@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DropzoneButton } from "../../shared/components/dropzone/dropzone";
 import type { FileWithPath } from "@mantine/dropzone";
-import type { Prediction } from "./predictionModel";
 import style from "./style.module.scss";
 import {
   Button,

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useUsersStore } from "./model";
 import {
   Table,
-  Loader,
   Text,
   Paper,
   Title,
@@ -11,6 +10,7 @@ import {
   Modal,
   Anchor,
   Alert,
+  Loader,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import AddUserModal from "../../../shared/components/AddUserModal/AddUserModal";
@@ -25,7 +25,7 @@ const AdminDashboard: React.FC = () => {
 
   const {
     users,
-    loading,
+
     error,
     fetchUsers,
     createUser,
@@ -142,10 +142,6 @@ const AdminDashboard: React.FC = () => {
     }
   };
 
-  if (loading) {
-    return <Loader />;
-  }
-
   if (error) {
     return <Text color="red">Ошибка: {error}</Text>;
   }
@@ -153,7 +149,7 @@ const AdminDashboard: React.FC = () => {
   return (
     <Paper shadow="sm" radius="lg" p="xl" withBorder>
       <Group justify="space-between" mb="md">
-        <Title order={2}>Управление пльзователями</Title>
+        <Title order={2}>Управление пользователями</Title>
         <Button onClick={openAddModal}>Добавить пользователя</Button>
       </Group>
       {users.length === 0 ? (

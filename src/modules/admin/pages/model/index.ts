@@ -12,7 +12,7 @@ interface UsersState {
   deleteUser: (id: number) => Promise<void>;
 }
 
-export const useUsersStore = create<UsersState>((set, get) => ({
+export const useUsersStore = create<UsersState>((set) => ({
   users: [],
   loading: false,
   error: null,

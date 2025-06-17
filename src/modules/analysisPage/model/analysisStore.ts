@@ -21,7 +21,7 @@ interface AnalysisState {
   resetState: () => void;
 }
 
-export const useAnalysisStore = create<AnalysisState>((set, get) => ({
+export const useAnalysisStore = create<AnalysisState>((set) => ({
   selectedFile: null,
   predictionResult: null,
   isLoading: false,

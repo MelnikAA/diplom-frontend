@@ -9,7 +9,6 @@ import {
   Pagination,
   Select,
   Box,
-  TextInput,
   Paper,
 } from "@mantine/core";
 import { Image } from "@mantine/core";
@@ -17,11 +16,10 @@ import { Image } from "@mantine/core";
 import { DateTime } from "luxon";
 import { useUsersStore } from "../../admin/pages/model";
 import type { User } from "../../admin/pages/api";
-import { useSearchParams, useLocation, Link } from "react-router-dom";
-import { DateInput, DatePicker } from "@mantine/dates";
+import { useSearchParams, Link } from "react-router-dom";
+import { DateInput } from "@mantine/dates";
 import { useWhoamiStore } from "../../../layouts/model/whoamiStore";
 import { IconExternalLink } from "@tabler/icons-react";
-import { ru } from "date-fns/locale";
 
 const HistoryPage: React.FC = () => {
   useEffect(() => {
@@ -29,10 +27,8 @@ const HistoryPage: React.FC = () => {
   }, []);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
   const {
     predictions = [],
-    total,
     page,
     size,
     pages,

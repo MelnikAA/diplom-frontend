@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { IconCloudUpload, IconDownload, IconX } from "@tabler/icons-react";
-import { Button, Group, Text, useMantineTheme } from "@mantine/core";
+import { Group, Text, useMantineTheme } from "@mantine/core";
 import { Dropzone, MIME_TYPES } from "@mantine/dropzone";
-import type { FileRejection, FileWithPath } from "@mantine/dropzone";
+import type { FileWithPath } from "@mantine/dropzone";
 import classes from "./dropzone.module.scss";
 
 interface DropzoneButtonProps {

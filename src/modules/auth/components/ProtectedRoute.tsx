@@ -13,15 +13,11 @@ export const AuthRoute: React.FC<AuthRouteProps> = ({ children }) => {
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
-    let mounted = true;
-
     if (accessToken && !user && !loading) {
       fetchUser();
     }
 
-    return () => {
-      mounted = false;
-    };
+    return () => {};
   }, [accessToken, user]);
 
   // Если нет токена, сразу редиректим на логин
@@ -47,15 +43,11 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({ children }) => {
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
-    let mounted = true;
-
     if (accessToken && !user && !loading) {
       fetchUser();
     }
 
-    return () => {
-      mounted = false;
-    };
+    return () => {};
   }, [accessToken, user, loading, fetchUser]);
 
   // Если нет токена, сразу редиректим на логин

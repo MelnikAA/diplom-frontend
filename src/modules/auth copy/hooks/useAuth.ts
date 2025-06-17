@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useWhoamiStore } from "../../../layouts/model/whoamiStore";
 
 export const useAuth = () => {
