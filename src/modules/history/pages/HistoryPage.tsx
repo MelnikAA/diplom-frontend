@@ -101,7 +101,7 @@ const HistoryPage: React.FC = () => {
   const rows = predictions?.map((prediction: Prediction) => {
     const createdAt = DateTime.fromISO(prediction.created_at, {
       setZone: true,
-    }).plus({ hours: 9 }); // Прибавляем 9 часов
+    }).plus({ hours: 10 }); // Прибавляем 9 часов
 
     const formattedDate = createdAt.toFormat("dd.MM.yyyy"); // Например: 18.06.2025
     const formattedTime = createdAt.toFormat("HH:mm"); // Например: 09:56
@@ -187,7 +187,7 @@ const HistoryPage: React.FC = () => {
 
           <Select
             clearable
-            placeholder="Наличие опухоли"
+            placeholder="Наличие патологии"
             data={[
               { value: "true", label: "Да" },
               { value: "false", label: "Нет" },
@@ -207,7 +207,7 @@ const HistoryPage: React.FC = () => {
                     : undefined,
               })
             }
-            label="Фильтр по опухоли"
+            label="Фильтр по патологии"
           />
           <div style={{ display: "flex", gap: "16px", minWidth: "200px" }}>
             <DateInput
@@ -249,7 +249,7 @@ const HistoryPage: React.FC = () => {
                 <Table.Thead>
                   <Table.Tr>
                     <Table.Th>Дата и Время</Table.Th>
-                    <Table.Th>Опухоль</Table.Th>
+                    <Table.Th>Патология</Table.Th>
                     <Table.Th>Уверенность модели</Table.Th>
                     <Table.Th>Пациент</Table.Th>
                     {user?.is_superuser && <Table.Th>Врач</Table.Th>}

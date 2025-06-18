@@ -10,7 +10,7 @@ interface ResultInfoProps {
 
 const ResultInfo = ({ prediction }: ResultInfoProps) => {
   const dt = DateTime.fromISO(prediction.created_at, { setZone: true }).plus({
-    hours: 9,
+    hours: 10,
   });
   const formattedDate = dt.toFormat("dd.MM.yyyy");
   const formattedTime = dt.toFormat("HH:mm");
@@ -28,7 +28,7 @@ const ResultInfo = ({ prediction }: ResultInfoProps) => {
 Рекомендации: ${prediction.recommendations}
 ${prediction.notes ? `Примечания: ${prediction.notes}\n` : ""}
 Уверенность модели: ${(prediction.confidence * 100).toFixed(0)}%
-Наличие опухоли: ${prediction.has_tumor ? "Да" : "Нет"}
+Наличие патологии: ${prediction.has_tumor ? "Да" : "Нет"}
   `.trim();
 
   return (
@@ -207,7 +207,7 @@ ${prediction.notes ? `Примечания: ${prediction.notes}\n` : ""}
             {(prediction.confidence * 100).toFixed(0)}%
           </p>
           <p>
-            <strong>Наличие опухоли:</strong>{" "}
+            <strong>Наличие патологии:</strong>{" "}
             {prediction.has_tumor ? "Да" : "Нет"}
           </p>
         </div>
