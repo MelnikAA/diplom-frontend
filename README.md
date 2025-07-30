@@ -1,1 +1,1 @@
-# diplom-frontend
+frontend
